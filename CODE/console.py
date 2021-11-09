@@ -16,7 +16,7 @@ import repositories.album_repository as album_repository
 # creates some artist objects from Artist class for tests
 artist_1 = Artist("David Bowie")
 artist_2 = Artist("Dead Kennedys")
-artist_3 = Artist("Nicola Conte")
+artist_3 = Artist("Antonio Conte")
 
 
 # calls artist_repository SAVE -- 3 artists
@@ -57,7 +57,7 @@ album_2 = Album("The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
 album_3 = Album("Fresh Fruit for Rotting Vegetables", "Hardcore Punk", artist_2)
 album_4 = Album("Plastic Surgery Disasters", "Hardcore Punk", artist_2)
 album_5 = Album('"Heroes"', "Experimental Rock", artist_1)
-album_6 = Album("1. Outside (The Nathan Adler Diaries: A Hyper-cycle)", "Industrial Rock", artist_1)
+album_6 = Album("Outside", "Industrial Rock", artist_1)
 album_7 = Album("Other Directions", "Jazz", artist_3)
 album_8 = Album("The Next Day", "Rock", artist_1)
 album_9 = Album("Bedtime for Democracy", "Hardcore Punk", artist_2)
@@ -96,14 +96,32 @@ print(result.__dict__)
 #     print(row.__dict__)
 
 # calls artist_repository LIST ALBUMS by ARTIST
-# artist_repository.list_albums_by_artist(artist_1)
 result = artist_repository.list_albums_by_artist(artist_1)
-print("ALL ALBUMS by ARTIST 1 ------------------")
+print("ALL ALBUMS by ARTIST 1------------------")
 for row in result:
     print(row.__dict__)
 
 
+# calls UPDATE 1 by id -- ARTIST
+artist_3.name = "Nicola Conte"
+artist_repository.update_1_by_id(artist_3)
+result = artist_repository.select_1_by_id(artist_3.id)
+print(result.__dict__)
 
 
+# calls UPDATE 1 by id -- ALBUM
+album_6.title = "1. Outside (The Nathan Adler Diaries: A Hyper-cycle)"
+album_repository.update_1_by_id(album_6)
+result = album_repository.select_1_by_id(album_6.id)
+print("------------------- ERROR!!!!!! --------------")
+print(result.__dict__)
+print("------------------- ERROR!!!!!! --------------")
+
+# calls DELETE 1 BY ID -------- ALBUMS
+album_repository.delete_1_by_id(6)
+result = artist_repository.list_albums_by_artist(artist_1)
+print("ALL ALBUMS by ARTIST 1------------------")
+for row in result:
+    print(row.__dict__)
 
 pdb.set_trace()
