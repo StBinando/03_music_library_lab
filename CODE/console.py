@@ -20,4 +20,9 @@ result = artist_repository.select_all()
 for row in result:
     print(row.__dict__)
 
+
+# calls artist_repository SELECT 1 by id
+result = artist_repository.select_1_by_id(1)
+print(result.__dict__)
+
 pdb.set_trace()

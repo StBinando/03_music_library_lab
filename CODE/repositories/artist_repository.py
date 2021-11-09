@@ -21,4 +21,13 @@ def select_all():
         artist = Artist(row['name'], row['id'])
         artists.append(artist)
     return artists 
-    
+
+
+def select_1_by_id(id):
+    sql = f"SELECT * FROM artists where id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        artist = Artist(result['name'], result['id'])
+    return artist
+
