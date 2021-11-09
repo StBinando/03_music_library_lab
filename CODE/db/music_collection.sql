@@ -8,7 +8,7 @@ CREATE TABLE artists(
 
 CREATE TABLE albums(
     id SERIAL PRIMARY KEY,
-    title VARCHAR NOT NULL,
-    genre VARCHAR NOT NULL,
-    artist_id INT
+    title VARCHAR(255) NOT NULL,
+    genre VARCHAR(255) NOT NULL,
+    artist VARCHAR(255) NOT NULL
 )
