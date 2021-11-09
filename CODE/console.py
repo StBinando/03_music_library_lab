@@ -15,24 +15,35 @@ artist_repository.save(artist_1)
 artist_repository.save(artist_2)
 artist_repository.save(artist_3)
 
+
 # calls artist_repository SELECT ALL -- 3 artists
 result = artist_repository.select_all()
-print("ALL--------------------------")
+print("ALL ARTISTS--------------------------")
 for row in result:
     print(row.__dict__)
 
 
 # calls artist_repository SELECT 1 by id
 result = artist_repository.select_1_by_id(1)
+print("ARTIST id = 1 --------------------------")
 print(result.__dict__)
 
 
 # calls artist_repository DELETE ALL
 artist_repository.delete_all()
 result = artist_repository.select_all()
-print("ALL--------------------------")
+print("ALL ARTISTS (after DELETE ALL)------------------")
 for row in result:
     print(row.__dict__)
+
+
+
+
+
+
+
+
+
 
 
 pdb.set_trace()
