@@ -95,7 +95,12 @@ print(result.__dict__)
 # for row in result:
 #     print(row.__dict__)
 
-
+# calls artist_repository LIST ALBUMS by ARTIST
+# artist_repository.list_albums_by_artist(artist_1)
+result = artist_repository.list_albums_by_artist(artist_1)
+print("ALL ALBUMS by ARTIST 1 ------------------")
+for row in result:
+    print(row.__dict__)
 
 
 
