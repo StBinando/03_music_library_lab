@@ -113,9 +113,7 @@ print(result.__dict__)
 album_6.title = "1. Outside (The Nathan Adler Diaries: A Hyper-cycle)"
 album_repository.update_1_by_id(album_6)
 result = album_repository.select_1_by_id(album_6.id)
-print("------------------- ERROR!!!!!! --------------")
 print(result.__dict__)
-print("------------------- ERROR!!!!!! --------------")
 
 # calls DELETE 1 BY ID -------- ALBUMS
 album_repository.delete_1_by_id(6)
@@ -123,5 +121,19 @@ result = artist_repository.list_albums_by_artist(artist_1)
 print("ALL ALBUMS by ARTIST 1------------------")
 for row in result:
     print(row.__dict__)
+
+# calls DELETE 1 BY ID -------- ARTISTS
+artist_repository.delete_1_by_id(1)
+result = artist_repository.select_all()
+print("ALL ARTISTS------------------")
+for row in result:
+    print(row.__dict__)
+
+result = album_repository.select_all()
+print("ALL ALBUMS------------------")
+for row in result:
+    print(row.__dict__)
+
+
 
 pdb.set_trace()
