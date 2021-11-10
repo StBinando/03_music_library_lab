@@ -125,6 +125,8 @@ for row in result:
 # calls DELETE 1 BY ID -------- ARTISTS
 artist_repository.delete_1_by_id(1)
 result = artist_repository.select_all()
+print("------------------------- DELETE 1 ARTIST ------------------------")
+print("---------- ON CASCADE DELETE ALL ALBUMS BY THAT ARTIST------------")
 print("ALL ARTISTS------------------")
 for row in result:
     print(row.__dict__)
